@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
@@ -79,7 +77,7 @@ public class SavingsAccountTest
 	@Test
 	public void testForBankAccountIdInAscendingOrderList()
 	{
-		Set<BankAccountList> set = new TreeSet<BankAccountList>(new accountID());
+		Set<BankAccountList> set = new TreeSet<BankAccountList>(new AccountID());
 		set.add(list1);
 		set.add(list2);
 		set.add(list3);

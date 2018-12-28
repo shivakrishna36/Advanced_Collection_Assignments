@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 public class SavingsAccount implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name ="";
 	private double accountBalance;
 	private String accountHolderName;
@@ -62,9 +66,9 @@ public class SavingsAccount implements Serializable
 		return isSalary;
 	}
 	
-	public String showValues(ArrayList list)
+	public String showValues(ArrayList<SavingsAccount> list)
 	{
-		Iterator values = list.iterator();
+		Iterator<SavingsAccount> values = list.iterator();
 		while(values.hasNext())
 		{
 			name = name + " " + values.next();
@@ -79,16 +83,16 @@ public class SavingsAccount implements Serializable
 		{
 			name.createNewFile();
 		}
-		FileOutputStream file = new FileOutputStream(name);
-		ObjectOutputStream object = new ObjectOutputStream(file);
+		ObjectOutputStream object = new ObjectOutputStream(new FileOutputStream(name));
 		object.writeObject(list);
 		object.close();
 	}
 	
 	public ArrayList<SavingsAccount> displayObject() throws IOException, ClassNotFoundException
 	{
-		FileInputStream input = new FileInputStream("C:/ShivaKrishna/JAVA_PROGRAMS/savingsaccount.txt");
-		ObjectInputStream values = new ObjectInputStream(input);
+		
+		ObjectInputStream values = new ObjectInputStream(new FileInputStream("C:/ShivaKrishna/JAVA_PROGRAMS/savingsaccount.txt"));
+		
 		ArrayList<SavingsAccount> account = (ArrayList<SavingsAccount>)values.readObject();
 		return account;
 	}

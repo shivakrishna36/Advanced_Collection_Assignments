@@ -103,7 +103,7 @@ public class BankAccountList
 		return name.toString();
 	}
 }
-class accountID implements Comparator<BankAccountList>
+class AccountID implements Comparator<BankAccountList>
 {
 	@Override
 	public int compare(BankAccountList list1, BankAccountList list2)
